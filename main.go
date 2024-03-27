@@ -24,12 +24,7 @@ type DidContractAll interface {
 	InitAdmin(didJson string) error
 	SetAdmin(did string) error
 	GetAdmin() (string, error)
-	IsValidDid(did string) (bool, error)
-	AddDidDocument(didDocument string) error
-	GetDidDocument(did string) (string, error)
-	GetDidByPubkey(pk string) (string, error)
-	GetDidByAddress(address string) (string, error)
-	UpdateDidDocument(didDocument string) error
+	DidContractFunction
 }
 
 // MainContract 长安链DID主入口合约

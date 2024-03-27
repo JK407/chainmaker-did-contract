@@ -74,6 +74,15 @@ func (e *DidContract) GetAdmin() (string, error) {
 	return e.dal.getAdmin()
 }
 
+type DidContractFunction interface {
+	IsValidDid(did string) (bool, error)
+	AddDidDocument(didDocument string) error
+	GetDidDocument(did string) (string, error)
+	GetDidByPubkey(pk string) (string, error)
+	GetDidByAddress(address string) (string, error)
+	UpdateDidDocument(didDocument string) error
+}
+
 // IsValidDid 判断DID URL是否合法
 func (e *DidContract) IsValidDid(did string) (bool, error) {
 	if len(did) < 9 {
